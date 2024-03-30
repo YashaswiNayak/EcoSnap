@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="20dp"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/postImage"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/posts" />
+
+        <TextView
+            android:id="@+id/title"
+            android:hint="@string/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/postImage"
+            android:layout_marginTop="16dp"
+            android:text="@string/post_title"
+            android:textSize="18sp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark_grey"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_below="@+id/title">
+
+            <!-- Action button -->
+
+            <!-- Comment button -->
+            <ImageButton
+                android:id="@+id/likeButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:contentDescription="@string/likebutton"
+                android:text="@string/like"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/actionButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circular_button"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+
+                android:text="@string/action"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/commentButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circular_button"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/comment"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <!-- Like button -->
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

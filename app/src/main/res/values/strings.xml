@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">EcoSnap</string>
+    <string name="profile">Profile</string>
+    <string name="ecosnap">EcoSnap</string>
+    <string name="logo">logo</string>
+    <string name="posts">posts</string>
+    <string name="actions">A</string>
+    <string name="comment">C</string>
+    <string name="post_title">Post Title</string>
+    <string name="like">Like</string>
+    <string name="action">A</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="likebutton">likeButton</string>
+</resources>
