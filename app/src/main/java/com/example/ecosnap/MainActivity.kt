@@ -3,12 +3,14 @@ package com.example.ecosnap
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.ScrollView
-import androidx.appcompat.widget.Toolbar
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -53,7 +55,20 @@ class MainActivity : AppCompatActivity() {
                     likeButton.setImageResource(R.drawable.ic_heart)
                 }
             }
+            val actionButton=postLayout.findViewById<Button>(R.id.actionButton)
+            actionButton.setOnClickListener {
+                val popupMenu = PopupMenu(this@MainActivity, actionButton)
 
+                // Inflating popup menu from popup_menu.xml file
+                popupMenu.menuInflater.inflate(R.menu.action_options, popupMenu.menu)
+                popupMenu.setOnMenuItemClickListener { menuItem ->
+                    // Toast message on menu item clicked
+                    Toast.makeText(this@MainActivity, "You Clicked " + menuItem.title, Toast.LENGTH_SHORT).show()
+                    true
+                }
+                // Showing the popup menu
+                popupMenu.show()
+            }
 
             container.addView(postLayout)
         }
