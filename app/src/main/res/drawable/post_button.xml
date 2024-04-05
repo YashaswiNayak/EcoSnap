@@ -1,0 +1,7 @@
+<!-- circular_button.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <stroke
+        android:color="@color/orange"
+        android:width="3dp"/>
+    <solid android:color="#ffffff"/> <!-- Use solid color for the inside of the circle -->
+</shape>

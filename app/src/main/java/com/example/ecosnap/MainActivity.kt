@@ -24,9 +24,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val topToolbar = findViewById<Toolbar>(R.id.topToolbar)
+//        val bottomToolbar=findViewById<Toolbar>(R.id.bottomToolbar)
         val container:LinearLayout=findViewById(R.id.main)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(topToolbar)
+
         supportActionBar?.apply {
             setDisplayShowTitleEnabled(false) // Hide default title
             setDisplayHomeAsUpEnabled(false)
