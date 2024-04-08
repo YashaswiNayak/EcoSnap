@@ -12,4 +12,10 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="likebutton">likeButton</string>
+    <string name="todo">TODO</string>
+    <string name="enter_your_contribution">Enter your contribution</string>
+    <string name="opt_in_out_for_the_cause">Opt In/Out for the cause</string>
+    <string name="out">Out</string>
+    <string name="in">In</string>
+    <string name="donate">Donate</string>
 </resources>

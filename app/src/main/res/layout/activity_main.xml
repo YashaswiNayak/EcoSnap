@@ -2,11 +2,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/toolbar_border"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:src="@drawable/ecosnap_transparent_final"
+            android:contentDescription="@string/logo" />
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/bottomToolbar"
+        android:layout_below="@+id/topToolbar"
+        android:id="@+id/scroll_view"
         android:background="@color/cream">
 
         <LinearLayout
@@ -21,21 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/topToolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@drawable/toolbar_border"
-                    android:minHeight="?attr/actionBarSize"
-                    android:theme="?attr/actionBarTheme">
 
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="?attr/actionBarSize"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ecosnap_transparent_final"
-                        android:contentDescription="@string/logo" />
-                </androidx.appcompat.widget.Toolbar>
             </com.google.android.material.appbar.AppBarLayout>
 
             <!-- Content Area -->
@@ -46,12 +53,12 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/bottomToolbar"
         android:layout_alignParentBottom="true">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/bottomToolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="50dp"
             android:background="@color/light_black"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" >
@@ -60,7 +67,9 @@
                 android:background="@color/light_black"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/post_plus"/>
+                android:src="@drawable/post_plus"
+                android:id="@+id/newPost"
+                android:contentDescription="@string/todo" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -1,5 +1,6 @@
 package com.example.ecosnap
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         val topToolbar = findViewById<Toolbar>(R.id.topToolbar)
-//        val bottomToolbar=findViewById<Toolbar>(R.id.bottomToolbar)
+        val newPost=findViewById<ImageButton>(R.id.newPost)
         val container:LinearLayout=findViewById(R.id.main)
         setSupportActionBar(topToolbar)
 
@@ -59,21 +60,19 @@ class MainActivity : AppCompatActivity() {
             }
             val actionButton=postLayout.findViewById<Button>(R.id.actionButton)
             actionButton.setOnClickListener {
-                val popupMenu = PopupMenu(this@MainActivity, actionButton)
-
-                // Inflating popup menu from popup_menu.xml file
-                popupMenu.menuInflater.inflate(R.menu.action_options, popupMenu.menu)
-                popupMenu.setOnMenuItemClickListener { menuItem ->
-                    // Toast message on menu item clicked
-                    Toast.makeText(this@MainActivity, "You Clicked " + menuItem.title, Toast.LENGTH_SHORT).show()
-                    true
-                }
-                // Showing the popup menu
-                popupMenu.show()
+                val participate = Intent(this, Participate::class.java)
+                startActivity(participate)
             }
 
             container.addView(postLayout)
         }
+        newPost.setOnClickListener{
+            val postCreation=Intent(this,PostCreation::class.java).apply {
+
+            }
+            startActivity(postCreation)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/participate"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Top Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/toolbar_border"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:src="@drawable/ecosnap_transparent_final"
+            android:contentDescription="@string/logo" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Content Layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topToolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Post Image -->
+            <ImageView
+                android:id="@+id/postImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/posts" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:background="@drawable/edittext_border"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/post_title"
+                android:textSize="18sp"
+                android:textColor="@color/dark_grey"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:background="@drawable/edittext_border"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                android:text="@string/description"
+                android:textColor="@color/black"/>
+
+            <!-- Opt In/Out Title -->
+            <TextView
+                android:id="@+id/choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAlignment="center"
+                android:text="@string/opt_in_out_for_the_cause"
+                android:textSize="24sp"
+                android:textColor="@color/black" />
+
+            <!-- RadioGroup -->
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/in"
+                    android:textSize="18sp"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/out"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp" />
+            </RadioGroup>
+
+            <!-- Contribution EditText -->
+            <EditText
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="8dp"
+                android:hint="@string/enter_your_contribution"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:digits="0123456789" />
+
+            <!-- Donate Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/donate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/donate"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@drawable/create_post_button_design" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
