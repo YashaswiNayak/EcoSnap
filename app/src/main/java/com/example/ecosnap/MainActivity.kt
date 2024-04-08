@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -78,5 +80,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.options,menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.profileButton -> {
+                val profileView=Intent(this,ProfileView::class.java).apply {
+
+                }
+                startActivity(profileView)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

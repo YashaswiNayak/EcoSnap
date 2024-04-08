@@ -46,7 +46,6 @@
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:background="@drawable/edittext_border"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/post_title"
@@ -59,7 +58,6 @@
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
-                android:background="@drawable/edittext_border"
                 android:layout_height="150dp"
                 android:layout_marginTop="8dp"
                 android:textAlignment="center"

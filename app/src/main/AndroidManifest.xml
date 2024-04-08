@@ -29,6 +29,7 @@
         </activity>
         <activity android:name=".PostCreation"></activity>
         <activity android:name=".Participate"></activity>
+        <activity android:name=".ProfileView"></activity>
     </application>
 
 </manifest>
