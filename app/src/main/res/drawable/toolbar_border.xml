@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="@color/gold"/>
-        </shape>
-    </item>
+    <!-- Border layer with light black color -->
     <item android:bottom="3dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/light_black"/>
+            <solid android:color="@color/cream" /> <!-- Change color to light black -->
+            <!-- Set corner radius for rounded borders -->
         </shape>
     </item>
 </layer-list>

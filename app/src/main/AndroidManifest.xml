@@ -30,6 +30,8 @@
         <activity android:name=".PostCreation"></activity>
         <activity android:name=".Participate"></activity>
         <activity android:name=".ProfileView"></activity>
+        <activity android:name=".Comment"></activity>
+        <activity android:name=".Homepage"></activity>
     </application>
 
 </manifest>

@@ -46,7 +46,7 @@ class PostCreation:AppCompatActivity() {
         }
 
         btnPost.setOnClickListener {
-            val returnToMain = Intent(this, MainActivity::class.java)
+            val returnToMain = Intent(this, Homepage::class.java)
             startActivity(returnToMain)
         }
 

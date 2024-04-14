@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:id="@+id/post"
     android:elevation="20dp"
-    android:background="@color/white"
+    android:background="@color/cream"
     android:padding="16dp">
 
     <!-- Your existing content here -->
@@ -44,7 +44,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
-            android:background="@color/white"
+            android:background="@color/cream"
             android:contentDescription="@string/likebutton"
             android:text="@string/like"
             android:textColor="@color/black" />

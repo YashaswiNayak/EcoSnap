@@ -3,13 +3,14 @@
     android:id="@+id/profile_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/opening_wallpaper"
     android:fitsSystemWindows="true">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/topToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/toolbar_border"
+        android:background="@android:color/transparent"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
 
@@ -17,14 +18,13 @@
             android:layout_width="200dp"
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="center"
-            android:src="@drawable/ecosnap_transparent_final"
+            android:src="@drawable/ecosnap_transparent"
             android:contentDescription="@string/logo" />
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:background="@color/cream"
         android:layout_height="match_parent"
         android:layout_below="@id/topToolbar">
 
@@ -78,7 +78,7 @@
                 android:id="@+id/activitis_participated"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/other_details"
+                android:layout_below="@id/list_view_posts"
                 android:layout_marginTop="16dp" />
 
         </RelativeLayout>

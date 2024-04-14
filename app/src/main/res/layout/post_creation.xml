@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/postCreationLayout"
+    android:background="@drawable/opening_wallpaper"
     android:layout_height="match_parent">
 
     <!-- Top Toolbar -->
@@ -9,7 +10,7 @@
         android:id="@+id/topToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/toolbar_border"
+        android:background="@android:color/transparent"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
 
@@ -17,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/ecosnap_transparent_final"
+            android:src="@drawable/ecosnap_transparent"
             android:contentDescription="@string/logo" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -36,6 +37,7 @@
             <!-- Image View -->
             <ImageView
                 android:id="@+id/imageView"
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop" />
