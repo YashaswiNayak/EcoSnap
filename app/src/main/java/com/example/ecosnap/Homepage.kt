@@ -45,6 +45,13 @@ class Homepage:AppCompatActivity() {
             layoutParams.gravity= Gravity.CENTER
             postLayout.layoutParams = layoutParams
             val likeButton: ImageButton = postLayout.findViewById(R.id.likeButton)
+            val visitPost:LinearLayout=postLayout.findViewById(R.id.visitPost)
+            visitPost.setOnClickListener{
+                val profileView= Intent(this,ProfileView::class.java).apply {
+
+                }
+                startActivity(profileView)
+            }
             likeButton.setImageResource(R.drawable.ic_heart)
             var image = false
             likeButton.setOnClickListener {
