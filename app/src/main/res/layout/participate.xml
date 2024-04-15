@@ -16,7 +16,7 @@
         android:theme="?attr/actionBarTheme">
 
         <ImageView
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="center"
             android:src="@drawable/ecosnap_transparent"
@@ -28,29 +28,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topToolbar">
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:padding="16dp">
 
             <!-- Post Image -->
             <ImageView
                 android:id="@+id/postImage"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:contentDescription="@string/posts" />
+                android:contentDescription="@string/posts"
+                android:layout_marginTop="8dp"/>
 
             <!-- Title -->
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/postImage"
+                android:gravity="center"
                 android:layout_marginTop="16dp"
                 android:text="@string/post_title"
-                android:textSize="18sp"
-                android:textColor="@color/dark_grey"
+                android:textSize="24sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
 
@@ -58,7 +60,10 @@
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_below="@id/title"
                 android:layout_marginTop="8dp"
                 android:textAlignment="center"
                 android:text="@string/description"
@@ -69,10 +74,11 @@
                 android:id="@+id/choice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/description"
                 android:layout_marginTop="16dp"
                 android:textAlignment="center"
                 android:text="@string/opt_in_out_for_the_cause"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textColor="@color/black" />
 
             <!-- RadioGroup -->
@@ -80,6 +86,9 @@
                 android:id="@+id/radioGroup1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/choice"
+                android:orientation="horizontal"
                 android:paddingTop="8dp">
 
                 <RadioButton
@@ -94,10 +103,10 @@
                     android:id="@+id/radioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:text="@string/out"
-                    android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:layout_marginTop="8dp" />
+                    android:textSize="18sp" />
             </RadioGroup>
 
             <!-- Contribution EditText -->
@@ -105,10 +114,12 @@
                 android:id="@+id/amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/radioGroup1"
                 android:layout_marginTop="16dp"
                 android:padding="8dp"
                 android:hint="@string/enter_your_contribution"
                 android:textSize="18sp"
+                android:textColorHint="@color/black"
                 android:textColor="@color/black"
                 android:inputType="number"
                 android:digits="0123456789" />
@@ -118,13 +129,14 @@
                 android:id="@+id/donate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/amount"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/create_post_button_design"
                 android:text="@string/donate"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </ScrollView>
 

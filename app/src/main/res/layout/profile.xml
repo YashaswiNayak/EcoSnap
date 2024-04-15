@@ -48,6 +48,7 @@
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:text="Username"
                 android:textSize="24sp"
@@ -58,28 +59,54 @@
 
             <!-- Other Details -->
             <TextView
-                android:id="@+id/other_details"
+                android:id="@+id/honor_points"
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
-                android:text="Other Details"
+                android:text="Honor Points: "
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_below="@id/user_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp" />
 
             <!-- ListView for User Posts -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/honor_points"
+                android:layout_marginTop="16dp"
+                android:text="Activities Joined:"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:id="@+id/heading"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_height="50dp"/>
+            <ListView
+                android:id="@+id/activities_participated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/heading"
+                android:layout_marginTop="16dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_below="@id/activities_participated"
+                android:layout_marginTop="16dp"
+                android:text="Posts:"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:id="@+id/heading2"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_height="50dp"/>
+
             <ListView
                 android:id="@+id/list_view_posts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/other_details"
+                android:layout_below="@id/heading2"
                 android:layout_marginTop="16dp" />
-            <ListView
-                android:id="@+id/activitis_participated"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/list_view_posts"
-                android:layout_marginTop="16dp" />
+
 
         </RelativeLayout>
     </ScrollView>
