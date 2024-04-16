@@ -29,11 +29,6 @@ open class MainActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("login_test_app", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("user_token", "")
 
-        if (token ==""){
-            val intent = Intent(this@MainActivity, Login::class.java)
-            startActivity(intent)
-            finish() // Optional, depending on whether you want to finish this activity
-        }
         val entryTextView = findViewById<TextView>(R.id.entry)
         entryTextView.visibility = TextView.VISIBLE
         val fadeIn = AlphaAnimation(0f, 1f)
@@ -62,9 +57,15 @@ open class MainActivity : AppCompatActivity() {
 
             override fun onAnimationEnd(animation: Animation?) {
                 // Start the next activity here
-                val intent = Intent(this@MainActivity, Homepage::class.java)
-                startActivity(intent)
-                finish() // Optional, depending on whether you want to finish this activity
+                if (token == "") {
+                    val intent = Intent(this@MainActivity, Login::class.java)
+                    startActivity(intent)
+                    finish() // Optional, depending on whether you want to finish this activity
+                } else {
+                    val intent = Intent(this@MainActivity, Homepage::class.java)
+                    startActivity(intent)
+                    finish() // Optional, depending on whether you want to finish this activity
+                }
             }
 
             override fun onAnimationRepeat(animation: Animation?) {}

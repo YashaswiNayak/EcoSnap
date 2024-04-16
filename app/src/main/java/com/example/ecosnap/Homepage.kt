@@ -1,8 +1,11 @@
 package com.example.ecosnap
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +15,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
@@ -19,15 +23,19 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import java.util.Locale
 
 class Homepage:AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var geocoder: Geocoder
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_app)
+        sharedPreferences = getSharedPreferences("EcoSnap", Context.MODE_PRIVATE)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
+        geocoder = Geocoder(this, Locale.getDefault())
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -51,6 +59,7 @@ class Homepage:AppCompatActivity() {
                 // Got last known location. In some rare situations this can be null.
                 location?.let {
                     Log.d("Location", "Latitude: ${it.latitude}, Longitude: ${it.longitude}")
+                    getCityName(it)
                 }
             }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -117,6 +126,27 @@ class Homepage:AppCompatActivity() {
             }
             startActivity(postCreation)
         }
+    }
+    private fun getCityName(location: Location) {
+        try {
+            val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+            if (addresses != null) {
+                if (addresses.isNotEmpty()) {
+                    val cityName = addresses[0].locality
+                    Log.d("City", "City Name: $cityName")
+                    saveCityName(cityName)
+                    Toast.makeText(this, "You are in $cityName ", Toast.LENGTH_SHORT).show()
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("Geocoder", "Error getting city name", e)
+        }
+    }
+
+    private fun saveCityName(cityName: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString("cityName", cityName)
+        editor.apply() // Save the changes
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
