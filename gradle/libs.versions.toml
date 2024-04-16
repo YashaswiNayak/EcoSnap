@@ -11,6 +11,9 @@ material = "1.11.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 smallbang = "1.2.2"
+googleServices = "4.3.14"
+firebaseFirestore = "24.4.1"
+playServicesLocation = "21.0.1"
 
 [libraries]
 androidlikebutton = { module = "com.jackandphantom.android:androidlikebutton", version.ref = "androidlikebutton" }
@@ -23,6 +26,9 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 smallbang = { module = "pub.hanks:smallbang", version.ref = "smallbang" }
+google-services = { group = "com.google.gms", name = "google-services", version.ref = "googleServices" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -1,5 +1,6 @@
 package com.example.ecosnap
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -11,17 +12,27 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.FirebaseApp
 
 open class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.homepage)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val sharedPreferences = getSharedPreferences("login_test_app", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("user_token", "")
+
+        if (token ==""){
+            val intent = Intent(this@MainActivity, Login::class.java)
+            startActivity(intent)
+            finish() // Optional, depending on whether you want to finish this activity
         }
         val entryTextView = findViewById<TextView>(R.id.entry)
         entryTextView.visibility = TextView.VISIBLE

@@ -6,7 +6,11 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
-
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -32,6 +36,8 @@
         <activity android:name=".ProfileView"></activity>
         <activity android:name=".Comment"></activity>
         <activity android:name=".Homepage"></activity>
+        <activity android:name=".Login"></activity>
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

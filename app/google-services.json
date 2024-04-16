@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1074445851439",
+    "project_id": "ecosnap-3bbda",
+    "storage_bucket": "ecosnap-3bbda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074445851439:android:8dd27498852ae78e455fda",
+        "android_client_info": {
+          "package_name": "com.example.ecosnap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwyB0Wv3orSFiH0UECtEJN6qOhb8esJGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
