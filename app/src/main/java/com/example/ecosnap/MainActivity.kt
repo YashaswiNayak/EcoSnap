@@ -26,7 +26,7 @@ open class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val sharedPreferences = getSharedPreferences("login_test_app", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("EcoSnap", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("user_token", "")
 
         val entryTextView = findViewById<TextView>(R.id.entry)

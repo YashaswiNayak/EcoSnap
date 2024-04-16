@@ -5,7 +5,13 @@ data class PostResponse(
     val title: String,
     val content: String,
     val imageUrl: String,
-    val user: String, // Assuming user is a string representing the user ID
+    val user: UserResponse, // Assuming user is a string representing the user ID
     val timestamp: Date
+)
+
+data class UserResponse(
+    val _id: String,
+    val username: String,
+    val email: String
 )
 

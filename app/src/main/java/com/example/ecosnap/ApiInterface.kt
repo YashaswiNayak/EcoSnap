@@ -20,4 +20,6 @@ interface ApiService {
     @POST("post/create")
     fun createPost(@Header("authorization") token: String, @Body post: Post): Call<PostResponse>
 
+    @GET("post/fetchPosts")
+    fun fetchPosts(@Header("authorization") token: String): Call<List<PostResponse>>
 }
