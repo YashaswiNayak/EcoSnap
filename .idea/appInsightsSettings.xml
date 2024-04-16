@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.ecosnap" />
+                  <option name="mobileSdkAppId" value="1:1074445851439:android:8dd27498852ae78e455fda" />
+                  <option name="projectId" value="ecosnap-3bbda" />
+                  <option name="projectNumber" value="1074445851439" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
