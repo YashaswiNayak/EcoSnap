@@ -35,4 +35,10 @@ interface ApiService {
     @GET("post/fetchUserPosts")
     fun fetchUserPosts(@Header("authorization") token: String): Call<List<PostResponse>>
 
+    @GET("post/fetchComments")
+    fun fetchComments(@Header("authorization") token: String, @Body id: String): Call<List<CommentResponse>>
+
+    @POST("post/donate")
+    fun donate(@Header("authorization") token: String, @Body donation: Donation): Call<ResponseBody>
+
 }

@@ -1,6 +1,7 @@
 package com.example.ecosnap
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -18,13 +19,26 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Comment:AppCompatActivity() {
+    private lateinit var sharedPreferences: SharedPreferences
+    private var token: String = ""
+    private lateinit var listView: ListView
+    private lateinit var post_id: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.comments)
 
-        val sharedPreferences = getSharedPreferences("EcoSnap", Context.MODE_PRIVATE)
-        val token = sharedPreferences.getString("user_token", "")
+        sharedPreferences = getSharedPreferences("EcoSnap", Context.MODE_PRIVATE)
+        token = sharedPreferences.getString("user_token", "").toString()
+        post_id = intent.getStringExtra("post_id").toString()
+        val comment_text = findViewById<EditText>(R.id.addComment)
+        listView = findViewById<ListView>(R.id.listView)
+        if (token != null) {
+            Log.d("Comment", "Token: $token")
+            fetchComments()
+        } else {
+            Log.e("Comment", "Token not found")
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.comments)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -32,9 +46,8 @@ class Comment:AppCompatActivity() {
             insets
         }
 
-        val post_id = intent.getStringExtra("post_id")
-        val comment_text = findViewById<EditText>(R.id.addComment)
-        val listView = findViewById<ListView>(R.id.listView)
+
+
         val submit = findViewById<AppCompatButton>(R.id.submitButton)
 
         // Call retrofit to add comment
@@ -72,5 +85,37 @@ class Comment:AppCompatActivity() {
             }
         }
     }
+
+    private fun fetchComments() {
+        // Call Retrofit to fetch comments for the given post_id
+        RetrofitClient.instance.fetchComments(token, post_id)
+            .enqueue(object : Callback<List<CommentResponse>> {
+                override fun onResponse(call: Call<List<CommentResponse>>, response: Response<List<CommentResponse>>) {
+                    if (response.isSuccessful) {
+                        // Handle success
+                        val comments = response.body()
+                        // Update your UI with the fetched comments
+                        // For example, you can use an ArrayAdapter to display comments in a ListView
+                        comments?.let {
+                            val adapter = ArrayAdapter(this@Comment, android.R.layout.simple_list_item_1, it)
+                            listView.adapter = adapter
+                        }
+                    } else {
+                        Log.e("Comment", "Failed to fetch comments: ${response}")
+                        Log.e("Comment", "Failed to fetch comments: ${response.code()}")
+                        // Handle error
+                        Toast.makeText(this@Comment, "Failed to fetch comments", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<List<CommentResponse>>, t: Throwable) {
+                    // Print error
+                    Log.e("Comment", "Failed to fetch comments", t)
+                    // Handle failure
+                    Toast.makeText(this@Comment, "Failed to fetch comments", Toast.LENGTH_SHORT).show()
+                }
+            })
+    }
+
 
 }
