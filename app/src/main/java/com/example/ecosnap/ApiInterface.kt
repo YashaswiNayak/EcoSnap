@@ -31,7 +31,7 @@ interface ApiService {
     fun optIn(@Header("authorization") token: String, @Body id: OptRes): Call<ResponseBody>
 
     @POST("post/optOut")
-    fun optOut(@Header("authorization") token: String, @Body id: OptRes): Call<ResponseBody>
+    fun optOut(@Header("authorization") token: String, @Body id: OptRes?): Call<ResponseBody>
 
     @GET("post/fetchUserPosts")
     fun fetchUserPosts(@Header("authorization") token: String): Call<List<PostResponse>>

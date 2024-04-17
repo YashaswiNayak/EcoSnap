@@ -258,6 +258,8 @@ class Homepage:AppCompatActivity() {
                 participate.putExtra("poster", post.user.username)
                 participate.putExtra("imgUrl", post.imageUrl)
                 participate.putExtra("time", post.timestamp)
+                participate.putExtra("donations", post.donations)
+                Log.d("Donations", "${post.donations}")
                 startActivity(participate)
             }
             commentButton.setOnClickListener {

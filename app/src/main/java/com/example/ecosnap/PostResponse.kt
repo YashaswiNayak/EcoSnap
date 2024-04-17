@@ -6,7 +6,8 @@ data class PostResponse(
     val content: String,
     val imageUrl: String,
     val user: UserResponse, // Assuming user is a string representing the user ID
-    val timestamp: Date
+    val timestamp: Date,
+    val donations: Int
 )
 
 data class UserResponse(

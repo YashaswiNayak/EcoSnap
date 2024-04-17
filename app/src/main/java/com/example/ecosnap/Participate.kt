@@ -43,6 +43,9 @@ class Participate:AppCompatActivity() {
         val poster = intent.getStringExtra("poster")
         val imgUrl = intent.getStringExtra("imgUrl")
         val time = intent.getStringExtra("timestamp")
+        val donations = intent.getStringExtra("donations")
+        Log.d("Donations", "$donations")
+
 
         val titleBox = findViewById<TextView>(R.id.title)
         val descBox = findViewById<TextView>(R.id.description)
@@ -121,7 +124,29 @@ class Participate:AppCompatActivity() {
         val amount=findViewById<EditText>(R.id.amount)
         val donate=findViewById<Button>(R.id.donate)
         donate.setOnClickListener{
+            val D = Donation(postId.toString(),amount.text.toString().toInt())
             Toast.makeText(this@Participate,"Amount: ${amount.text}",Toast.LENGTH_SHORT).show()
+            RetrofitClient.instance.donate(token, D).enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    if (response.isSuccessful) {
+                        // Handle the response
+                        val postResponse = response.body()
+                        Log.d("Response", "Donated successfully")
+                    } else {
+                        Log.d("err res", response.toString())
+                        // Handle error
+                        Log.e("Error", "Failed to donate")
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    // Handle failure
+                    Log.e("Error", "Error donating", t)
+                }
+            })
             val returnToMain= Intent(this,Homepage::class.java).apply {
 
             }
