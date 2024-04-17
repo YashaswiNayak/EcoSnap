@@ -94,6 +94,14 @@ class Homepage:AppCompatActivity() {
         val newPost=findViewById<ImageButton>(R.id.newPost)
         val container: LinearLayout =findViewById(R.id.main)
         setSupportActionBar(topToolbar)
+        val logout = findViewById<Button>(R.id.logout)
+        logout.setOnClickListener {
+            val editor = sharedPreferences.edit()
+            editor.clear()
+            editor.apply()
+            val login = Intent(this, Login::class.java)
+            startActivity(login)
+        }
 
         supportActionBar?.apply {
             setDisplayShowTitleEnabled(false) // Hide default title
