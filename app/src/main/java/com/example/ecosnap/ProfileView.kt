@@ -52,6 +52,7 @@ class ProfileView:AppCompatActivity() {
                         // For example, set text to TextViews
                         name.text = userDetails?.username
                         honor_points.text = "Honor Points: " + userDetails?.honorPoints.toString()
+                        fetchPosts()
                         //email.text = userDetails?.email
                         //shToken.text = token
                     } else {
@@ -73,7 +74,7 @@ class ProfileView:AppCompatActivity() {
 
     }
     private fun populatePostsUI() {
-        val container: LinearLayout = findViewById(R.id.main)
+        val container: LinearLayout = findViewById(R.id.main1)
         posts?.forEach { post ->
             Log.d("POST DEBUG", "user ${post.user}")
             val postLayout = layoutInflater.inflate(R.layout.post, null)

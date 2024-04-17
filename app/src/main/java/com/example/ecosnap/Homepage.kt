@@ -161,6 +161,8 @@ class Homepage:AppCompatActivity() {
                     Log.d("City", "City Name: $cityName")
                     saveCityName(cityName)
                     Toast.makeText(this, "You are in $cityName ", Toast.LENGTH_SHORT).show()
+                    val city = findViewById<TextView>(R.id.cityName)
+                    city.text = cityName
                 }
             }
         } catch (e: Exception) {

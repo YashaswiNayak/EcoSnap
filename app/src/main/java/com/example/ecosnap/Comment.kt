@@ -33,12 +33,8 @@ class Comment:AppCompatActivity() {
         post_id = intent.getStringExtra("post_id").toString()
         val comment_text = findViewById<EditText>(R.id.addComment)
         listView = findViewById<ListView>(R.id.listView)
-        if (token != null) {
-            Log.d("Comment", "Token: $token")
-            fetchComments()
-        } else {
-            Log.e("Comment", "Token not found")
-        }
+        Log.d("Comment", "Token: $token")
+        fetchComments()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.comments)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -54,7 +50,7 @@ class Comment:AppCompatActivity() {
         submit.setOnClickListener {
             val commentText = comment_text.text.toString()
 
-            if (commentText.isNotEmpty() && token != null) {
+            if (commentText.isNotEmpty()) {
                 val comment = CommentFields(post_id.toString(), commentText)
 
                 RetrofitClient.instance.addComment(token, comment)

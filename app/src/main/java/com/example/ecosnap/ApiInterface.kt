@@ -6,6 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiService {
     @POST("auth/register")
@@ -36,7 +37,7 @@ interface ApiService {
     fun fetchUserPosts(@Header("authorization") token: String): Call<List<PostResponse>>
 
     @GET("post/fetchComments")
-    fun fetchComments(@Header("authorization") token: String, @Body id: String): Call<List<CommentResponse>>
+    fun fetchComments(@Header("authorization") token: String, @Query("postId") postId: String): Call<List<CommentResponse>>
 
     @POST("post/donate")
     fun donate(@Header("authorization") token: String, @Body donation: Donation): Call<ResponseBody>

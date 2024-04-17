@@ -22,12 +22,21 @@
             android:src="@drawable/ecosnap_transparent"
             android:contentDescription="@string/logo" />
     </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:textSize="24sp"
+        android:layout_below="@id/topToolbar"
+        android:id="@+id/cityName"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomToolbar"
-        android:layout_below="@+id/topToolbar"
+        android:layout_below="@+id/cityName"
         android:id="@+id/scroll_view">
 
         <LinearLayout

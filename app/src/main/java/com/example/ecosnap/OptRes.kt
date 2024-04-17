@@ -1,5 +1,5 @@
 package com.example.ecosnap
 
-data class OptRes(
+data class   OptRes(
     val id: String
 )

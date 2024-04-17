@@ -100,12 +100,30 @@
                 android:textStyle="bold"
                 android:layout_height="50dp"/>
 
-            <ListView
-                android:id="@+id/list_view_posts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/heading2"
-                android:layout_marginTop="16dp" />
+<!--            <ListView-->
+<!--                android:id="@+id/list_view_posts"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/heading2"-->
+<!--                android:layout_marginTop="16dp" />-->
+
+
+                <LinearLayout
+                    android:id="@+id/main1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <!-- Content Area -->
+
+                </LinearLayout>
 
 
         </RelativeLayout>
