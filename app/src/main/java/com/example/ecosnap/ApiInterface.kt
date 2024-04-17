@@ -22,4 +22,17 @@ interface ApiService {
 
     @GET("post/fetchPosts")
     fun fetchPosts(@Header("authorization") token: String): Call<List<PostResponse>>
+
+    @POST("post/addComment")
+    fun addComment(@Header("authorization") token: String, @Body comment: CommentFields): Call<ResponseBody>
+
+    @POST("post/optIn")
+    fun optIn(@Header("authorization") token: String, @Body id: OptRes): Call<ResponseBody>
+
+    @POST("post/optOut")
+    fun optOut(@Header("authorization") token: String, @Body id: OptRes): Call<ResponseBody>
+
+    @GET("post/fetchUserPosts")
+    fun fetchUserPosts(@Header("authorization") token: String): Call<List<PostResponse>>
+
 }

@@ -241,10 +241,18 @@ class Homepage:AppCompatActivity() {
             val commentButton=postLayout.findViewById<Button>(R.id.commentButton)
             actionButton.setOnClickListener {
                 val participate = Intent(this, Participate::class.java)
+                participate.putExtra("post_id", post._id)
+                participate.putExtra("poster_id", post.user._id)
+                participate.putExtra("title", post.title)
+                participate.putExtra("desc", post.content)
+                participate.putExtra("poster", post.user.username)
+                participate.putExtra("imgUrl", post.imageUrl)
+                participate.putExtra("time", post.timestamp)
                 startActivity(participate)
             }
             commentButton.setOnClickListener {
                 val comment = Intent(this, Comment::class.java)
+                comment.putExtra("post_id", post._id)
                 startActivity(comment)
             }
 
